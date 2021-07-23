@@ -33,4 +33,13 @@ WHERE
         AND cities.population > 500000 #no aguanta alias
 ORDER BY city_population DESC;
 
-#4 
+#4 todos los idiomas en cada pais con porcentaje > 89%  porcentaje desc (nombre pais, lenguaje porcentaje)
+SELECT 
+    countries.name AS country_name, language, percentage
+FROM
+    countries
+        JOIN
+    languages ON countries.id = languages.country_id
+WHERE
+    percentage > 89
+ORDER BY percentage DESC;
