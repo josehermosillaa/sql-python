@@ -109,5 +109,23 @@ WHERE
   category.name = "Drama"
   AND rental_rate = 2.99;
 #8¿Qué consulta harías para obtener todas las películas de acción a las que se une SANDRA KILMER?
-  #Su consulta debe devolver el t í tulo de la película,la descripción, el año de estreno,la calificaci ó n,
+  #Su consulta debe devolver el título de la película,la descripción, el año de estreno,la calificación,
   #las características especiales, el género (categoría) y el nombre y apellido del actor
+SELECT
+  actor.actor_id as actor_id,
+  CONCAT(actor.first_name, " ", actor.last_name) as actor_name,
+  title,
+  description,
+  release_year,
+  rating,
+  special_features,
+  category.name as genre
+FROM
+  actor
+  JOIN film_actor ON actor.actor_id = film_actor.actor_id
+  JOIN film ON film_actor.film_id = film.film_id
+  JOIN film_category ON film.film_id = film_category.film_id
+  JOIN category ON film_category.category_id = category.category_id
+WHERE
+  CONCAT(actor.first_name, " ", actor.last_name)= 'SANDRA KILMER'
+  AND category.name = "Action";
