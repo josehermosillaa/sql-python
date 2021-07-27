@@ -1,5 +1,5 @@
-SELECT
-  amigos;
+
+USE  amigos;
 #amigos  todos los usuarios que son amigos de kermit
 SELECT
   CONCAT(users.first_name, " ", users.last_name) as users_name,
